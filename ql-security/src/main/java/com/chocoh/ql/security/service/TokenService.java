@@ -80,8 +80,11 @@ public class TokenService {
      * @return 登录用户
      */
     public LoginUser getLoginUser(String token) {
-        String key = LOGIN_USER_KEY + parseJwt(token.replace("Bearer ", ""));
-        return JSON.parseObject(redisTemplate.opsForValue().get(key), LoginUser.class);
+        if (token != null) {
+            String key = LOGIN_USER_KEY + parseJwt(token.replace("Bearer ", ""));
+            return JSON.parseObject(redisTemplate.opsForValue().get(key), LoginUser.class);
+        }
+        return null;
     }
 
     private String createJwt(String subject) {
