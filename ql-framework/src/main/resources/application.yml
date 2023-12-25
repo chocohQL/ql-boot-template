@@ -26,3 +26,18 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+
+email:
+  host: smtp.qq.com
+  from: change@qq.com
+  password: change
+  type: text/html;charset=UTF-8
+  username: change@qq.com
+
+oss:
+  endpoint: change
+  url: change
+  bucket-name: chocoh
+  access-key-id: change
+  access-key-secret: change
+  file-dir: ql/avatar/

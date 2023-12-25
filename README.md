@@ -2,22 +2,146 @@
 
 > 失手扑空蓝色的蜻蛉
 > 
-> GitHub: [chocohQL](https://github.com/chocohQL)
+> Author: [chocohQL](https://github.com/chocohQL)
+> 
+> GitHub: [https://github.com/chocohQL/ql-boot-template](https://github.com/chocohQL/ql-boot-template)
 
 ## 项目介绍
 
-ql-boot-template 是一个简洁且优雅的后台管理系统模板项目，即删即用。
+ql-boot-template 是一个简洁且优雅的后台管理系统模板项目，聚焦于最通用常用的核心代码，即删即用。
 
-部分代码借鉴了若依的写法，但相比之下做了很多减法，聚焦于最通用常用的核心代码。
+## 技术选型
 
-## 项目技术
++ JDK 8
++ SpringBoot 2.5.15
++ SpringSecurity 2.5.15
++ MyBatisPlus 3.5.3.1
++ MySQL 8.0.31
++ Redis 7.0.12
 
-- SpringBoot
-- SpringSecurity
-- MyBatis-Plus
-- Redis
+## 项目结构
+
+```
+ql-boot-template  
+├── ql-common                       // 通用模块
+│       └── annotation                  // 注解
+│       └── constant                    // 常量
+│       └── exception                   // 异常类
+│       └── pojo                        // 实体类
+│       └── utils                       // 工具类
+├── ql-framework                    // 核心模块
+│       └── accept                      // 切面
+│       └── config                      // 全局配置
+│       └── controller                  // 控制层
+│       └── exception                   // 异常处理
+│       └── mapper                      // 持久层
+│       └── service                     // 业务层
+├── ql-security                     // 安全模块
+│       └── filter                      // 过滤器
+│       └── handler                     // 处理器
+│       └── service                     // 认证业务
+```
 
 ## 快速开始
+
+### 按需创建数据库表
+
+`sql/ql_boot_template.sql` 
+
+创建数据库执行 sql 文件，将数据库名替换为你自己的数据库名。数据库仅会生成一个 user 表，对应 User 类。可在其基础上扩充字段。
+
+```java
+public class User {
+    private Long id;
+    private String username;
+    private String password;
+    private String role;
+}
+```
+
+### 修改application.yml文件
+
+`ql-framework/src/main/resources/application.yml`
+
+修改数据 MySQL 和 Redis 配置
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ql_boot_template?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: yourPassword
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  redis:
+    host: localhost
+    port: 6379
+    password: yourPassword
+```
+
+### 修改客户端配置
+
+修改 OSS 和 Email 配置。
+
+```yaml
+email:
+  host: smtp.qq.com
+  from: change@qq.com
+  password: change
+  type: text/html;charset=UTF-8
+  username: change@qq.com
+
+oss:
+  endpoint: change
+  url: change
+  bucket-name: chocoh
+  access-key-id: change
+  access-key-secret: change
+  file-dir: ql/avatar/
+```
+
+不需要使用 OSS 或 Email 则可删除配置，同时删除 ClientConfig 中配置的bean。
+
+`ql-framework/src/main/java/com/chocoh/ql/framework/config/ClientConfig.java`
+
+```java
+@Configuration
+public class ClientConfig {
+    @Bean
+    public EmailClient emailClient() {
+        return new EmailClient();
+    }
+
+    @Bean
+    public OssClient ossClient() {
+        return new OssClient();
+    }
+}
+```
+
+### 启动前端（可选）
+
+独立打开 ql-web 前端测试项目，安装依赖，启动项目。
+
+```shell
+npm install
+```
+```shell
+npm run dev
+```
+
+### 测试启动
+
+启动项目，默认实现了登录和退出登录接口。
+
+### 后续开发
+
++ 按需修改项目名、模块名、包名等信息
++ 删除一些不需要的工具类等
++ 在 ql-framework 模块中编写业务，在 ql-common 模块中编写实体类和工具类等。
+
+## 了解更多
 
 ## 超级响应类
 
@@ -86,8 +210,4 @@ JsonPrinter.printJson(ok);
 
 ## 授权认证
 
-项目有独立的认证授权模块，通过对 SpringSecurtiy 的二次封装，用尽量少的代码实现最常用的功能且便于扩展。
-
-### 基本实现
-
-### 扩展逻辑
+...
