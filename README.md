@@ -40,6 +40,7 @@ ql-boot-template
 │       └── filter                      // 过滤器
 │       └── handler                     // 处理器
 │       └── service                     // 认证业务
+├── ql-vue-template                 // 前端模板
 ```
 
 ## 快速开始
@@ -120,9 +121,13 @@ public class ClientConfig {
 }
 ```
 
+### 测试启动
+
+启动项目，默认实现了登录和退出登录接口。
+
 ### 启动前端（可选）
 
-独立打开 ql-web 前端测试项目，安装依赖，启动项目。
+进入 ql-vue-template 前端模板项目，安装依赖并启动。
 
 ```shell
 npm install
@@ -130,10 +135,6 @@ npm install
 ```shell
 npm run dev
 ```
-
-### 测试启动
-
-启动项目，默认实现了登录和退出登录接口。
 
 ### 后续开发
 
