@@ -30,7 +30,7 @@ ql-boot-template
 │       └── pojo                        // 实体类
 │       └── utils                       // 工具类
 ├── ql-framework                    // 核心模块
-│       └── accept                      // 切面
+│       └── ascept                      // 切面
 │       └── config                      // 全局配置
 │       └── controller                  // 控制层
 │       └── exception                   // 异常处理
@@ -211,4 +211,5 @@ JsonPrinter.printJson(ok);
 
 ## 授权认证
 
-...
+![1](assets/1.svg)
+
