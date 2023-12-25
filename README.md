@@ -30,7 +30,7 @@ ql-boot-template
 │       └── pojo                        // 实体类
 │       └── utils                       // 工具类
 ├── ql-framework                    // 核心模块
-│       └── accept                      // 切面
+│       └── ascept                      // 切面
 │       └── config                      // 全局配置
 │       └── controller                  // 控制层
 │       └── exception                   // 异常处理
@@ -45,26 +45,17 @@ ql-boot-template
 
 ## 快速开始
 
-### 按需创建数据库表
+### 创建数据库表
 
 `sql/ql_boot_template.sql` 
 
-创建数据库执行 sql 文件，将数据库名替换为你自己的数据库名。数据库仅会生成一个 user 表，对应 User 类。可在其基础上扩充字段。
-
-```java
-public class User {
-    private Long id;
-    private String username;
-    private String password;
-    private String role;
-}
-```
+创建数据库执行sql文件，仅生成一个 user 表，对应 User 类，可按需扩充字段。
 
 ### 修改application.yml文件
 
 `ql-framework/src/main/resources/application.yml`
 
-修改数据 MySQL 和 Redis 配置
+修改 MySQL 和 Redis 连接配置
 
 ```yaml
 spring:
@@ -131,25 +122,30 @@ public class ClientConfig {
 
 ```shell
 npm install
-```
-```shell
+
 npm run dev
 ```
 
 ### 后续开发
 
-+ 按需修改项目名、模块名、包名等信息
-+ 删除一些不需要的工具类等
++ 按需修改项目名、模块名、包名等信息。
++ 删除一些不需要的工具类等。
 + 在 ql-framework 模块中编写业务，在 ql-common 模块中编写实体类和工具类等。
 
 ## 了解更多
+
+## 授权认证
+
+使用SpringSecurity授权认证流程
+
+![1](assets/1.svg)
 
 ## 超级响应类
 
 `com.chocoh.ql.common.pojo.model.Response`
 
 + 类名调用直接响应基本的 {msg, code, data} 结构。
-+ 继承至 HashMap，内置了 DataMap 内部类，方便链式调用实现各种复杂的响应结构。
++ 继承 HashMap ，内置了 DataMap 内部类，方便链式调用生成各种复杂的响应结构。
 
 ### 常用结构
 
@@ -207,8 +203,5 @@ JsonPrinter.printJson(ok);
 
 ### 其他结构
 
-如果不想使用经典的 {msg, code, data} 结构，那么可以直接使用无参构造创建一个空 Response 类再链式调用构造内容。
+如果不想使用 {msg, code, data} 结构，可以直接使用无参构造创建一个空 Response 对象，通过链式调用定制内容。
 
-## 授权认证
-
-...
