@@ -1,14 +1,13 @@
 package com.chocoh.ql.common.utils;
 
-
-import com.sun.mail.util.MailSSLSocketFactory;
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.extra.mail.MailAccount;
+import cn.hutool.extra.mail.MailUtil;
 import org.springframework.beans.factory.annotation.Value;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.security.GeneralSecurityException;
-import java.util.Properties;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author chocoh
@@ -20,36 +19,34 @@ public class EmailClient {
     private String host;
     @Value("${email.password}")
     private String password;
-    @Value("${email.type}")
-    private String type;
     @Value("${email.username}")
     private String username;
 
-    public void sendEmail(String receiver, String subject, String content) throws GeneralSecurityException, MessagingException {
-        Properties properties = new Properties();
-        properties.setProperty("mail.host", host);
-        properties.setProperty("mail.transport.protocol", "smtp");
-        properties.setProperty("mail.smtp.auth", "true");
-        MailSSLSocketFactory sf = new MailSSLSocketFactory();
-        sf.setTrustAllHosts(true);
-        properties.put("mail.smtp.ssl.enable", "true");
-        properties.put("mail.smtp.ssl.socketFactory", sf);
-        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
-        Session session = Session.getDefaultInstance(properties, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, password);
+    private volatile MailAccount account;
+
+    public void sendHttpEmail(ArrayList<String> tos, String subject, String content, String... filePaths) {
+        sendEmail(tos, subject, content, true, filePaths);
+    }
+
+    public void sendSimpleEmail(ArrayList<String> tos, String subject, String content, String... filePaths) {
+        sendEmail(tos, subject, content, false, filePaths);
+    }
+
+    private void sendEmail(ArrayList<String> tos, String subject, String content, boolean isHtml, String... filePaths) {
+        File[] files = Arrays.stream(filePaths).map(FileUtil::newFile).toArray(File[]::new);
+        MailUtil.send(getAccount(), tos, subject, content, isHtml, files);
+    }
+
+    private MailAccount getAccount() {
+        if (account == null) {
+            synchronized (this) {
+                if (account == null) {
+                    account = new MailAccount()
+                            .setAuth(true).setSslEnable(true).setPort(465)
+                            .setFrom(from).setHost(host).setPass(password).setUser(username);
+                }
             }
-        });
-        session.setDebug(true);
-        Transport ts = session.getTransport();
-        ts.connect(host, from, password);
-        MimeMessage message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(username));
-        message.setRecipient(Message.RecipientType.TO, new InternetAddress(receiver));
-        message.setSubject(subject);
-        message.setContent(content, type);
-        ts.sendMessage(message, message.getAllRecipients());
-        ts.close();
+        }
+        return account;
     }
 }

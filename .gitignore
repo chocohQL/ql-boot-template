@@ -34,4 +34,3 @@ build/
 /src/main/resources/static/
 /ql-ui/
 /ql-framework/src/main/resources/application-dev.yml
-/ql-framework/src/test/

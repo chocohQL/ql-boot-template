@@ -1,5 +1,6 @@
 package com.chocoh.ql.security.service;
 
+import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSON;
 import com.chocoh.ql.common.pojo.model.LoginUser;
 import io.jsonwebtoken.Jwts;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Component;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import static com.chocoh.ql.common.constant.Constants.*;
@@ -90,7 +90,7 @@ public class TokenService {
     private String createJwt(String subject) {
         long nowMillis = System.currentTimeMillis();
         return Jwts.builder()
-                .setId(UUID.randomUUID().toString())
+                .setId(IdUtil.simpleUUID())
                 .setSubject(subject)
                 .signWith(SignatureAlgorithm.HS256, generalKey())
                 .compact();

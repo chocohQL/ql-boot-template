@@ -2,6 +2,7 @@ package com.chocoh.ql.framework.exception;
 
 import com.chocoh.ql.common.pojo.model.Response;
 import com.chocoh.ql.common.exception.GlobalException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.impl.FileSizeLimitExceededException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 /**
  * @author chocoh
  */
+@Slf4j
 @RestControllerAdvice
 public class CustomHandlerController {
     /**
@@ -30,7 +32,7 @@ public class CustomHandlerController {
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Response handleValidationException(MethodArgumentNotValidException e) {
-        return Response.error(e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
+        return Response.error(e.getBindingResult().getFieldError().getDefaultMessage());
     }
 
     /**

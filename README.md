@@ -81,7 +81,6 @@ email:
   host: smtp.qq.com
   from: change@qq.com
   password: change
-  type: text/html;charset=UTF-8
   username: change@qq.com
 
 oss:
