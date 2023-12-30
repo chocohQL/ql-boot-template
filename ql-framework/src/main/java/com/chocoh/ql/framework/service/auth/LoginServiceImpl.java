@@ -1,4 +1,4 @@
-package com.chocoh.ql.framework.service.impl;
+package com.chocoh.ql.framework.service.auth;
 
 import com.chocoh.ql.common.exception.GlobalException;
 import com.chocoh.ql.common.exception.user.PasswordErrorException;

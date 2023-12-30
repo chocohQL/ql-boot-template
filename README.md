@@ -161,42 +161,47 @@ return Response.success(new ArrayList<>());
 ### 通过链式调用实现各种复杂结构
 
 ```java
-Response ok = Response.dataMap()
-        .put("1", "参数一")
-        .put("2", "参数二")
-        .getMap("3")
-        .put("3.1", System.currentTimeMillis())
-        .put("3.2", new Random().nextInt(8))
-        .getMap("3.3")
-        .put("3.3.1", Constants.HEADER_TOKEN)
-        .put("3.3.2", new User(1L, "chocoh", "123123", "admin"))
-        .ok()
-        .put("其他外层参数", "...");
-JsonPrinter.printJson(ok);
+Response response = Response.dataMap()
+.put("1", "参数一")
+.put("2", "参数二")
+.getMap("3")
+.put("3.1", System.currentTimeMillis())
+.put("3.2", new Random().nextInt(8))
+.getMap("3.3")
+.put("4.1", Constants.HEADER_TOKEN)
+.put("4.2", new User(1L, "chocoh", "123123", "admin"))
+.put("4.3", new Response.DataMap().put("5.1", true).put("5.2", ""))
+.ok()
+.put("其他外层参数", "...");
+QlApplicationTest.printJson(response);
 ```
 
 ```json
 {
-	"msg":"操作成功",
-	"其他外层参数":"...",
-	"code":200,
-	"data":{
-		"1":"参数一",
-		"2":"参数二",
-		"3":{
-			"3.1":1703315612421,
-			"3.2":1,
-			"3.3":{
-				"3.3.2":{
-					"password":"123123",
-					"role":"admin",
-					"id":1,
-					"username":"chocoh"
-				},
-				"3.3.1":"Authorization"
-			}
-		}
-	}
+  "msg":"操作成功",
+  "其他外层参数":"...",
+  "code":200,
+  "data":{
+    "1":"参数一",
+    "2":"参数二",
+    "3":{
+      "3.1":1703938143220,
+      "3.2":5,
+      "3.3":{
+        "4.1":"Authorization",
+        "4.2":{
+          "password":"123123",
+          "role":"admin",
+          "id":1,
+          "username":"chocoh"
+        },
+        "4.3":{
+          "5.1":true,
+          "5.2":""
+        }
+      }
+    }
+  }
 }
 ```
 
