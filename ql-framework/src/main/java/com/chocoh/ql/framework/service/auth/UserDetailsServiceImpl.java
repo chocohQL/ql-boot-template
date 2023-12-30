@@ -1,4 +1,4 @@
-package com.chocoh.ql.framework.service.impl;
+package com.chocoh.ql.framework.service.auth;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.chocoh.ql.common.exception.user.UsernameErrorException;

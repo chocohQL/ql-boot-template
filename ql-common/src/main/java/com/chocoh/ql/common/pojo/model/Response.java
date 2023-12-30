@@ -73,6 +73,10 @@ public class Response extends HashMap<String, Object> {
         @JsonIgnore
         private Response response;
 
+        public DataMap() {
+
+        }
+
         public DataMap(Response response) {
             this.response = response;
         }
