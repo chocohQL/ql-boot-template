@@ -40,3 +40,11 @@ oss:
   access-key-id: change
   access-key-secret: change
   file-dir: ql/avatar/
+
+ql:
+  async:
+    thread-name-prefix: ql-boot-template-async-
+    max-pool-size: 10
+    core-pool-size: 10
+    queue-capacity: 100
+    keep-alive-seconds: 100

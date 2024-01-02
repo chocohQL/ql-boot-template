@@ -8,7 +8,9 @@
 
 ## 项目介绍
 
-ql-boot-template 是一个简洁且优雅的后台管理系统模板项目，聚焦于最通用常用的核心代码，即删即用。
+ql-boot-template 是一个基于简洁且优雅的后台管理系统模板项目，聚焦于最通用常用的核心代码，即删即用。
++ 后端项目基于 SpirngBoot + SpringSecuity 搭建
++ 内置自定义 spring-boot-starter 模板和 vue3 + ElementPlus + vite 前端模板
 
 ## 技术选型
 
@@ -40,6 +42,7 @@ ql-boot-template
 │       └── filter                      // 过滤器
 │       └── handler                     // 处理器
 │       └── service                     // 认证业务
+├── ql-spring-boot                  // spring-boot-starter模板
 ├── ql-vue-template                 // 前端模板
 ```
 

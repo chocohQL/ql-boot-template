@@ -1,4 +1,4 @@
-package com.chocoh.ql.common.utils;
+package com.chocoh.ql.async;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -42,6 +42,10 @@ public class AsyncServiceManager {
 
     public ExecutorBuilder executorBuilder() {
         return this.executorBuilder;
+    }
+
+    public void execute(Runnable task) {
+        threadPoolTaskExecutor.execute(task);
     }
 
     /**

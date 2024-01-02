@@ -6,7 +6,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.chocoh.ql.common.constant.Constants;
 import com.chocoh.ql.common.pojo.entity.User;
 import com.chocoh.ql.common.pojo.model.Response;
-import com.chocoh.ql.common.utils.EmailClient;
+import com.chocoh.ql.common.client.EmailClient;
+import com.chocoh.ql.async.AsyncServiceManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -54,5 +55,13 @@ public class QlApplicationTest {
                 "【QL】hello",
                 "<h1>hello</h1>",
                 "D:\\code\\Java\\ql-boot-template\\ql-vue-template\\public\\icon.png");
+    }
+
+    @Autowired
+    private AsyncServiceManager asyncServiceManager;
+
+    @Test
+    public void starterTest() {
+        asyncServiceManager.execute(() -> System.out.println(Thread.currentThread().getName()));
     }
 }

@@ -1,7 +1,7 @@
 package com.chocoh.ql.framework.config;
 
-import com.chocoh.ql.common.utils.EmailClient;
-import com.chocoh.ql.common.utils.OssClient;
+import com.chocoh.ql.common.client.EmailClient;
+import com.chocoh.ql.common.client.OssClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

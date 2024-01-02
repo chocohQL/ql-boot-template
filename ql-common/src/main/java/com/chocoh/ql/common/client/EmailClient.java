@@ -1,4 +1,4 @@
-package com.chocoh.ql.common.utils;
+package com.chocoh.ql.common.client;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.extra.mail.MailAccount;
