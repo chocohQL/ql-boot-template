@@ -1,6 +1,6 @@
 package com.chocoh.ql.framework.controller;
 
-import com.chocoh.ql.common.pojo.model.Response;
+import com.chocoh.ql.common.model.Response;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

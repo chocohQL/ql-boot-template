@@ -1,4 +1,4 @@
-package com.chocoh.ql.common.pojo.entity;
+package com.chocoh.ql.common.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;

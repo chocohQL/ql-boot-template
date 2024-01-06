@@ -1,4 +1,4 @@
-package com.chocoh.ql.common.pojo.entity;
+package com.chocoh.ql.dal.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -9,22 +9,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ql-framework</artifactId>
+    <groupId>org.example</groupId>
+    <artifactId>ql-dal</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>ql-dal</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>com.chocoh</groupId>
             <artifactId>ql-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.chocoh</groupId>
-            <artifactId>ql-security</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

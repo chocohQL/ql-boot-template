@@ -1,7 +1,7 @@
-package com.chocoh.ql.framework.mapper;
+package com.chocoh.ql.dal.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.chocoh.ql.common.pojo.entity.User;
+import com.chocoh.ql.dal.domain.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

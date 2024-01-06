@@ -1,4 +1,4 @@
-package com.chocoh.ql.common.pojo.model;
+package com.chocoh.ql.dal.domain.dto;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.chocoh.ql.common.pojo.model;
+package com.chocoh.ql.common.model;
 import com.chocoh.ql.common.constant.HttpStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashMap;

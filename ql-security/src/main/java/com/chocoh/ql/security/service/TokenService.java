@@ -2,7 +2,7 @@ package com.chocoh.ql.security.service;
 
 import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSON;
-import com.chocoh.ql.common.pojo.model.LoginUser;
+import com.chocoh.ql.dal.domain.dto.LoginUser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;

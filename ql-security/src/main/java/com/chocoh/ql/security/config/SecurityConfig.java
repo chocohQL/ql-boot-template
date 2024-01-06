@@ -1,6 +1,6 @@
-package com.chocoh.ql.framework.config;
+package com.chocoh.ql.security.config;
 
-import com.chocoh.ql.framework.service.auth.UserDetailsServiceImpl;
+import com.chocoh.ql.security.service.UserDetailsServiceImpl;
 import com.chocoh.ql.security.filter.AuthenticationTokenFilter;
 import com.chocoh.ql.security.hanlder.CustomAccessDeniedHandler;
 import com.chocoh.ql.security.hanlder.CustomAuthenticationEntryPoint;

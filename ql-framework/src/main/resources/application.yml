@@ -27,20 +27,6 @@ mybatis-plus:
     db-config:
       id-type: auto
 
-email:
-  host: smtp.qq.com
-  from: change@qq.com
-  password: change
-  username: change@qq.com
-
-oss:
-  endpoint: change
-  url: change
-  bucket-name: chocoh
-  access-key-id: change
-  access-key-secret: change
-  file-dir: ql/avatar/
-
 ql:
   async:
     thread-name-prefix: ql-boot-template-async-

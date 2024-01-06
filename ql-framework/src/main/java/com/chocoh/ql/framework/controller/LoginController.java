@@ -1,7 +1,7 @@
 package com.chocoh.ql.framework.controller;
 
-import com.chocoh.ql.common.pojo.model.LoginForm;
-import com.chocoh.ql.common.pojo.model.Response;
+import com.chocoh.ql.common.model.Response;
+import com.chocoh.ql.dal.domain.dto.LoginForm;
 import com.chocoh.ql.framework.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

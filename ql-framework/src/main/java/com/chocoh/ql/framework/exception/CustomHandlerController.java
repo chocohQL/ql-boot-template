@@ -1,6 +1,6 @@
 package com.chocoh.ql.framework.exception;
 
-import com.chocoh.ql.common.pojo.model.Response;
+import com.chocoh.ql.common.model.Response;
 import com.chocoh.ql.common.exception.GlobalException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.impl.FileSizeLimitExceededException;

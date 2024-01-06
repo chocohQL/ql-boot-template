@@ -1,7 +1,7 @@
 package com.chocoh.ql.common.utils;
 
 import com.alibaba.fastjson.JSON;
-import com.chocoh.ql.common.pojo.model.Response;
+import com.chocoh.ql.common.model.Response;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -9,7 +9,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Objects;
 
 /**
  * @author chocoh

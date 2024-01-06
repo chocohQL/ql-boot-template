@@ -18,6 +18,7 @@
         <module>ql-common</module>
         <module>ql-framework</module>
         <module>ql-security</module>
+        <module>ql-dal</module>
     </modules>
 
     <properties>

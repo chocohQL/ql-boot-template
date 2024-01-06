@@ -1,13 +1,11 @@
 package com.chocoh.ql.framework;
 
-import cn.hutool.core.collection.CollUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.chocoh.ql.common.constant.Constants;
-import com.chocoh.ql.common.pojo.entity.User;
-import com.chocoh.ql.common.pojo.model.Response;
-import com.chocoh.ql.common.client.EmailClient;
+import com.chocoh.ql.common.model.Response;
 import com.chocoh.ql.async.AsyncServiceManager;
+import com.chocoh.ql.dal.domain.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -43,18 +41,6 @@ public class QlApplicationTest {
         JSON json = JSON.parseObject(JSON.toJSONString(obj));
         String formattedJsonString = JSONObject.toJSONString(json, true);
         System.out.println(formattedJsonString);
-    }
-
-    @Autowired
-    private EmailClient emailClient;
-
-    @Test
-    public void emailTest() {
-        emailClient.sendHttpEmail(
-                CollUtil.newArrayList("xxxx@qq.com"),
-                "【QL】hello",
-                "<h1>hello</h1>",
-                "D:\\code\\Java\\ql-boot-template\\ql-vue-template\\public\\icon.png");
     }
 
     @Autowired

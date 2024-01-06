@@ -8,9 +8,9 @@ import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import com.alibaba.fastjson.JSON;
-import com.chocoh.ql.common.pojo.entity.User;
-import com.chocoh.ql.common.pojo.model.LoginUser;
-import com.chocoh.ql.common.pojo.model.Response;
+import com.chocoh.ql.common.model.Response;
+import com.chocoh.ql.dal.domain.dto.LoginUser;
+import com.chocoh.ql.dal.domain.entity.User;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

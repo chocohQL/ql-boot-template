@@ -1,6 +1,6 @@
-package com.chocoh.ql.common.pojo.model;
+package com.chocoh.ql.dal.domain.dto;
 
-import com.chocoh.ql.common.pojo.entity.User;
+import com.chocoh.ql.dal.domain.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

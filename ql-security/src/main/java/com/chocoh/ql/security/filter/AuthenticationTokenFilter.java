@@ -1,6 +1,7 @@
 package com.chocoh.ql.security.filter;
 
 import com.chocoh.ql.common.constant.Constants;
+import com.chocoh.ql.dal.domain.dto.LoginUser;
 import com.chocoh.ql.security.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,8 +15,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-import com.chocoh.ql.common.pojo.model.LoginUser;
 
 /**
  * @author chocoh
