@@ -8,7 +8,7 @@
 
 ## 项目介绍
 
-ql-boot-template 是一个基于简洁且优雅的后台管理系统模板项目，聚焦于最通用常用的核心代码，即删即用。
+ql-boot-template 是一个简洁且优雅的后台管理系统模板项目，聚焦于最通用常用的核心代码，即删即用。
 + 后端项目基于 SpirngBoot + SpringSecuity 搭建
 + 内置自定义 spring-boot-starter 模板和 vue3 + ElementPlus + vite 前端模板
 
@@ -119,6 +119,11 @@ sql中生成的测试用户 -> 用户名:chocoh，密码:123123。
 使用SpringSecurity授权认证流程
 
 ![ql-security](assets/ql-security.svg)
+
+ql-security 模块对 SpringSecurity 进行了封装，在 SecurityConfig 中同一配置：
++ TokenService 中封装了对jwt的操作和在Redis保存用户信息的逻辑，可在此集中修改封装基于token的一系列逻辑。
++ UserDetailsServiceImpl 中实现了登录查询用户信息的逻辑。AuthenticationService 中定义了用户密码的校验逻辑，可在次基础上进一步修改角色管理逻辑。
++ handler 包主要定义了一些处理逻辑，如退出登录、认证失败等。
 
 ### 客户端
 
