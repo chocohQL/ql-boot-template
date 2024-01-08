@@ -28,9 +28,10 @@ mybatis-plus:
       id-type: auto
 
 ql:
-  async:
-    thread-name-prefix: ql-boot-template-async-
-    max-pool-size: 10
+  task:
+    thread-name-prefix: ql-boot-template-task-
     core-pool-size: 10
+    max-pool-size: 100
     queue-capacity: 100
-    keep-alive-seconds: 100
+    keep-alive-seconds: 60
+    reject-policy: caller_runs_policy

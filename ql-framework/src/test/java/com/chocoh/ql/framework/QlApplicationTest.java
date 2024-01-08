@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.chocoh.ql.common.constant.Constants;
 import com.chocoh.ql.common.model.Response;
-import com.chocoh.ql.async.AsyncServiceManager;
+import com.chocoh.ql.Manager.TaskServiceManager;
 import com.chocoh.ql.dal.domain.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,10 +44,20 @@ public class QlApplicationTest {
     }
 
     @Autowired
-    private AsyncServiceManager asyncServiceManager;
+    private TaskServiceManager taskServiceManager;
 
     @Test
     public void starterTest() {
-        asyncServiceManager.execute(() -> System.out.println(Thread.currentThread().getName()));
+        for (int i = 0; i < 10; i++) {
+            taskServiceManager.execute(() -> {
+                        System.out.println(Thread.currentThread().getName());
+                        try {
+                            Thread.sleep(1000 * 5);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+            );
+        }
     }
 }
