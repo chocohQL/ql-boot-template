@@ -24,7 +24,7 @@ ql-boot-template 是一个简洁且优雅的后端模板项目，聚焦于最通
 
 ## 项目架构
 
-![ql-boot-template-架构](assets/ql-boot-template-架构.svg)
+![](https://fastly.jsdelivr.net/gh/chocohQL/ql-file@main/assets/github/ql-boot-template-%E6%9E%B6%E6%9E%84.svg)
 
 项目主要分为4个模块:
 + **核心框架(ql-framework)**：主要用于编写核心业务、全局配置、异常处理等。
@@ -119,7 +119,7 @@ sql中生成的测试用户 -> 用户名:chocoh，密码:123123。
 
 使用SpringSecurity授权认证流程
 
-![ql-security](assets/ql-security.svg)
+![](https://fastly.jsdelivr.net/gh/chocohQL/ql-file@main/assets/github/ql-security.svg)
 
 ql-security 模块对 SpringSecurity 进行了封装，在 SecurityConfig 中同一配置：
 + TokenService 中封装了对jwt的操作和在Redis保存用户信息的逻辑，可在此集中修改封装基于token的一系列逻辑。
