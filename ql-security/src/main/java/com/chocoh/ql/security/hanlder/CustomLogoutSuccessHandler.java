@@ -17,7 +17,7 @@ import java.io.IOException;
  * @author chocoh
  */
 @Component
-public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler {
+public class CustomLogoutSuccessHandler implements LogoutSuccessHandler {
     @Autowired
     private TokenService tokenService;
 

@@ -4,7 +4,7 @@ import com.chocoh.ql.security.service.UserDetailsServiceImpl;
 import com.chocoh.ql.security.filter.AuthenticationTokenFilter;
 import com.chocoh.ql.security.hanlder.CustomAccessDeniedHandler;
 import com.chocoh.ql.security.hanlder.CustomAuthenticationEntryPoint;
-import com.chocoh.ql.security.hanlder.LogoutSuccessHandlerImpl;
+import com.chocoh.ql.security.hanlder.CustomLogoutSuccessHandler;
 import com.chocoh.ql.security.service.AuthenticationProviderImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -61,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-    public LogoutSuccessHandlerImpl logoutSuccessHandler;
+    public CustomLogoutSuccessHandler logoutSuccessHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

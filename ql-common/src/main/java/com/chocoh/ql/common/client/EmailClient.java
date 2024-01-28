@@ -1,5 +1,6 @@
 package com.chocoh.ql.common.client;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.extra.mail.MailAccount;
 import cn.hutool.extra.mail.MailUtil;
@@ -24,11 +25,19 @@ public class EmailClient {
 
     private volatile MailAccount account;
 
-    public void sendHttpEmail(ArrayList<String> tos, String subject, String content, String... filePaths) {
+    public void sendHttpEmail(String to, String subject, String content, String... filePaths) {
+        sendEmail(CollUtil.newArrayList(to), subject, content, true, filePaths);
+    }
+
+    public void sendSimpleEmail(String to, String subject, String content, String... filePaths) {
+        sendEmail(CollUtil.newArrayList(to), subject, content, false, filePaths);
+    }
+
+    public void sendHttpEmails(ArrayList<String> tos, String subject, String content, String... filePaths) {
         sendEmail(tos, subject, content, true, filePaths);
     }
 
-    public void sendSimpleEmail(ArrayList<String> tos, String subject, String content, String... filePaths) {
+    public void sendSimpleEmails(ArrayList<String> tos, String subject, String content, String... filePaths) {
         sendEmail(tos, subject, content, false, filePaths);
     }
 
