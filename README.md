@@ -8,19 +8,23 @@
 
 ## 项目介绍
 
-ql-boot-template 是一个简洁且优雅的后端模板项目，聚焦于最通用常用的核心代码，即删即用。
+ql-boot-template 是一个多模块SpringBoot模板项目，聚焦于最通用常用的核心代码，即删即用。
 + 后端项目基于 SpirngBoot + SpringSecuity 搭建
 + 内置自定义 spring-boot-starter 模板
-+ 内置简易 vue 前端测试项目
+
+## 相关项目
+
++ 前端配套测试项目：[ql-vue-template](https://github.com/chocohQL/ql-vue-template)
++ SpringBoot极简模板项目（ql-boot-template青春版）：[ql-boot-simple](https://github.com/chocohQL/ql-boot-simple)
 
 ## 技术选型
 
 + JDK 8
-+ SpringBoot 2.5.15
-+ SpringSecurity 2.5.15
-+ MyBatisPlus 3.5.3.1
-+ MySQL 8.0.31
-+ Redis 7.0.12
++ SpringBoot
++ SpringSecurity
++ MyBatisPlus
++ MySQL
++ Redis
 
 ## 项目架构
 
@@ -31,8 +35,7 @@ ql-boot-template 是一个简洁且优雅的后端模板项目，聚焦于最通
 + **数据访模块(ql-dal)**：用于定义实体类和数据库映射。
 + **安全模块(ql-security)**：用于编写安全相关的代码，如安全配置、认证授权逻辑等。
 + **通用模块(ql-common)**：用于编写通用工具类、常量类、异常类等。
-
-其余模块非核心模块，如spring-boot-starter模板(ql-spring-boot)、前端模板(ql-vue-template)。
++ **starter模板(ql-spring-boot)**：简易的spring-boot-starter模板。
 
 ## 项目结构
 
@@ -65,7 +68,6 @@ ql-boot-template
 ├── ql-spring-boot                      // spring-boot-starter模板
 │       └── ql-spring-boot-autoconfigure    // starter自动配置
 │       └── ql-spring-boot-starter          // starter入口
-├── ql-vue-template                     // 前端模板
 ```
 
 ## 快速开始
@@ -100,16 +102,6 @@ spring:
 ### 测试启动
 
 启动项目，默认实现了登录和退出登录接口。
-
-### 启动前端（可选）
-
-进入 ql-vue-template 前端模板项目，安装依赖并启动。
-
-```shell
-npm install
-
-npm run dev
-```
 
 sql中生成的测试用户 -> 用户名:chocoh，密码:123123。
 
