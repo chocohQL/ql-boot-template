@@ -1,4 +1,4 @@
-package com.chocoh.ql.common.client;
+package com.chocoh.ql.common.utils;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;

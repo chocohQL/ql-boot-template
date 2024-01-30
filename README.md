@@ -8,7 +8,7 @@
 
 ## 项目介绍
 
-ql-boot-template 是一个多模块SpringBoot模板项目，聚焦于最通用常用的核心代码，即删即用。
+ql-boot-template 是一个多模块SpringBoot模板项目，已配置好基本框架和通用代码，用于快速搭建一个中小型的后端项目。
 + 后端项目基于 SpirngBoot + SpringSecuity 搭建
 + 内置自定义 spring-boot-starter 模板
 
@@ -72,13 +72,13 @@ ql-boot-template
 
 ## 快速开始
 
-### 创建数据库表
+1. 创建数据库表
 
 `sql/ql_boot_template.sql` 
 
 创建数据库执行sql文件，仅生成一个 user 表，对应 User 类，可按需扩充字段。
 
-### 修改application.yml文件
+2. 修改application.yml文件
 
 `ql-framework/src/main/resources/application.yml`
 
@@ -99,11 +99,11 @@ spring:
     password: yourPassword
 ```
 
-### 测试启动
+3. 测试启动
 
-启动项目，默认实现了登录和退出登录接口。
+启动前后端项目，默认实现了登录和退出登录接口。（sql中生成的测试用户 -> 用户名:chocoh，密码:123123）
 
-sql中生成的测试用户 -> 用户名:chocoh，密码:123123。
+前端测试项目：[ql-vue-template](https://github.com/chocohQL/ql-vue-template)
 
 ## 了解更多
 
@@ -122,9 +122,10 @@ ql-security 模块对 SpringSecurity 进行了封装，在 SecurityConfig 中同
 
 ### 修改客户端配置
 
-项目提供了多种现成客户端工具：
+项目提供了多种现成客户端、工具：
 + EmailClient：用于邮箱发送
-+ OssClient：用于阿里云OSS存储
++ OssClient：用于阿里云OSS对象存储
++ RedisService：对RedisTemplate常用操作的封装
 
 配置使用客户端：
 

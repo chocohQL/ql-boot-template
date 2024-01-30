@@ -1,4 +1,4 @@
-package com.chocoh.ql.common.client;
+package com.chocoh.ql.common.utils;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
