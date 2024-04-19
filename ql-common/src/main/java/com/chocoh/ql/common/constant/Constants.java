@@ -22,4 +22,8 @@ public class Constants {
     public static final String EMAIL_SUBJECT = "【QL】邮箱验证";
     public static final String EMAIL_RESET_PASS = "【QL】重置密码";
     public static final String HEADER_TOKEN = "Authorization";
+    /**
+     * pattern
+     */
+    public static final String PATTERN_PASSWORD = "^[a-zA-Z0-9]{6,16}$";
 }

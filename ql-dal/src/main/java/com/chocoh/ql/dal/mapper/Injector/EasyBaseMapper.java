@@ -1,4 +1,4 @@
-package com.chocoh.ql.dal.Injector;
+package com.chocoh.ql.dal.mapper.Injector;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import java.util.Collection;
 

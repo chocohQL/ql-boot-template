@@ -41,7 +41,8 @@ public class CustomHandlerController {
     @ExceptionHandler(ConstraintViolationException.class)
     public Response handleConstraintViolationException(ConstraintViolationException e) {
         String message = e.getConstraintViolations().stream()
-                .map(ConstraintViolation::getMessage).collect(Collectors.joining());
+                .map(ConstraintViolation::getMessage)
+                .collect(Collectors.joining());
         return Response.error(message);
     }
 

@@ -1,4 +1,4 @@
-package com.chocoh.ql.dal.Injector;
+package com.chocoh.ql.dal.mapper.Injector;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
