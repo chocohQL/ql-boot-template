@@ -10,6 +10,13 @@
 
 ql-boot-template 是一个多模块SpringBoot模板项目，已配置好基本框架和通用代码，用于快速搭建一个中小型的后端项目。
 
+## 技术选型
+
++ JDK8
++ SpringBoot
++ SpringSecurity
++ ...
+
 ## 项目架构
 
 ![](https://fastly.jsdelivr.net/gh/chocohQL/ql-file@main/assets/github/ql-boot-template-%E6%9E%B6%E6%9E%84.svg)
