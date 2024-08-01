@@ -1,5 +1,7 @@
 package com.chocoh.ql.framework.exception;
 
+import com.chocoh.ql.common.enums.ResultCodeEnum;
+import com.chocoh.ql.common.exception.BusinessException;
 import com.chocoh.ql.common.model.Response;
 import com.chocoh.ql.common.exception.GlobalException;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +38,14 @@ public class CustomHandlerController {
     }
 
     /**
+     * 处理业务异常
+     */
+    @ExceptionHandler(BusinessException.class)
+    public Response handlerBusinessException(BusinessException e) {
+        return new Response(e.getResultCodeEnum());
+    }
+
+    /**
      * 处理@RequestParam接口参数校验异常
      */
     @ExceptionHandler(ConstraintViolationException.class)
@@ -51,6 +61,6 @@ public class CustomHandlerController {
      */
     @ExceptionHandler({MaxUploadSizeExceededException.class, FileSizeLimitExceededException.class})
     public Response handleMaxUploadSizeExceededException() {
-        return Response.error("文件过大");
+        return new Response(ResultCodeEnum.MAX_UPLOAD_SIZE_EXCEEDED);
     }
 }

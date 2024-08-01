@@ -1,8 +1,5 @@
 package com.chocoh.ql.framework.service.impl;
 
-import com.chocoh.ql.common.exception.GlobalException;
-import com.chocoh.ql.common.exception.user.PasswordErrorException;
-import com.chocoh.ql.common.exception.user.UsernameErrorException;
 import com.chocoh.ql.dal.domain.dto.LoginUser;
 import com.chocoh.ql.framework.service.LoginService;
 import com.chocoh.ql.security.service.TokenService;
@@ -26,13 +23,9 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public String login(String username, String password) {
-        try {
-            Authentication authenticate = authenticationManager
-                    .authenticate(new UsernamePasswordAuthenticationToken(username, password));
-            LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
-            return tokenService.createAndSaveToken(loginUser);
-        } catch (PasswordErrorException | UsernameErrorException e) {
-            throw new GlobalException(e.getDefaultMessage());
-        }
+        Authentication authenticate = authenticationManager
+                .authenticate(new UsernamePasswordAuthenticationToken(username, password));
+        LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
+        return tokenService.createAndSaveToken(loginUser);
     }
 }
