@@ -6,8 +6,8 @@ import com.chocoh.ql.common.exception.BusinessException;
 /**
  * @author chocoh
  */
-public class PasswordErrorException extends BusinessException {
-    public PasswordErrorException() {
-        super(ResultCodeEnum.PASSWORD_ERROR);
+public class UsernameExistException extends BusinessException {
+    public UsernameExistException() {
+        super(ResultCodeEnum.USERNAME_EXIST);
     }
 }

@@ -1,5 +1,6 @@
 package com.chocoh.ql.framework.exception;
 
+import com.chocoh.ql.common.exception.BusinessException;
 import com.chocoh.ql.common.model.Response;
 import com.chocoh.ql.common.exception.GlobalException;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +34,14 @@ public class CustomHandlerController {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Response handleValidationException(MethodArgumentNotValidException e) {
         return Response.error(e.getBindingResult().getFieldError().getDefaultMessage());
+    }
+
+    /**
+     * 处理业务异常
+     */
+    @ExceptionHandler(BusinessException.class)
+    public Response handlerBusinessException(BusinessException e) {
+        return new Response(e.getResultCodeEnum());
     }
 
     /**

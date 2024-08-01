@@ -1,7 +1,7 @@
 package com.chocoh.ql.security.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.chocoh.ql.common.exception.user.UsernameErrorException;
+import com.chocoh.ql.common.exception.user.UsernameNotFountException;
 import com.chocoh.ql.dal.domain.dto.LoginUser;
 import com.chocoh.ql.dal.domain.entity.User;
 import com.chocoh.ql.dal.mapper.UserMapper;
@@ -24,7 +24,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userMapper.selectOne(new LambdaQueryWrapper<User>().eq(User::getUsername, username));
         if (user == null) {
-            throw new UsernameErrorException();
+            throw new UsernameNotFountException();
         }
         return new LoginUser(user, Collections.singletonList(user.getRole()), user.getId().toString());
     }
